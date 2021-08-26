@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>mastering-regular-expressions | Enclave-X</title><meta name="keywords" content="note"><meta name="author" content="DeeEll-X"><meta name="copyright" content="DeeEll-X"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="Chapter 1 正则表达式入门 egrep： 在指定正则表达式和需要检索的文件后，egrep尝试用正则表达式匹配每个文件的每一行。  元字符：  分组捕获&#x2F;字符组&#x2F;多选结构&#x2F;转义&#x2F;排除性字符组（仍需要匹配一个字符）&#x2F;-i忽略大小写&#x2F;转义的3种情况&#x2F;&#x2F;&lt;&#x2F;&gt;">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>mastering-regular-expressions | Enclave-X</title><meta name="keywords" content="note"><meta name="author" content="DeeEll-X"><meta name="copyright" content="DeeEll-X"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="写得不错，非常易懂。涉及具体语言对正则表达式的使用和实现没有看。 Chapter 1 正则表达式入门 egrep： 在指定正则表达式和需要检索的文件后，egrep尝试用正则表达式匹配每个文件的每一行, 并显示能够匹配的行。常用的grep命令相当于egrep -E。  egrep在检查正则表达式前会把行尾的换行符去掉。 -i用于忽略大小写的匹配。   egrep元字符小结：  使用括号：限制多选结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mastering-regular-expressions">
 <meta property="og:url" content="http://deeell-x.github.io/2021/08/18/mastering-regular-expressions/index.html">
 <meta property="og:site_name" content="Enclave-X">
-<meta property="og:description" content="Chapter 1 正则表达式入门 egrep： 在指定正则表达式和需要检索的文件后，egrep尝试用正则表达式匹配每个文件的每一行。  元字符：  分组捕获&#x2F;字符组&#x2F;多选结构&#x2F;转义&#x2F;排除性字符组（仍需要匹配一个字符）&#x2F;-i忽略大小写&#x2F;转义的3种情况&#x2F;&#x2F;&lt;&#x2F;&gt;">
+<meta property="og:description" content="写得不错，非常易懂。涉及具体语言对正则表达式的使用和实现没有看。 Chapter 1 正则表达式入门 egrep： 在指定正则表达式和需要检索的文件后，egrep尝试用正则表达式匹配每个文件的每一行, 并显示能够匹配的行。常用的grep命令相当于egrep -E。  egrep在检查正则表达式前会把行尾的换行符去掉。 -i用于忽略大小写的匹配。   egrep元字符小结：  使用括号：限制多选结构">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://deeell-x.github.io/null">
 <meta property="article:published_time" content="2021-08-18T13:49:18.000Z">
-<meta property="article:modified_time" content="2021-08-18T14:02:28.760Z">
+<meta property="article:modified_time" content="2021-08-26T07:50:18.842Z">
 <meta property="article:author" content="DeeEll-X">
 <meta property="article:tag" content="note">
 <meta name="twitter:card" content="summary">
@@ -80,7 +80,7 @@ var saveToLocal = {
   isHome: false,
   isHighlightShrink: false,
   isSidebar: true,
-  postUpdate: '2021-08-18 22:02:28'
+  postUpdate: '2021-08-26 15:50:18'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -140,15 +140,126 @@ if (autoChangeMode === '1') {
 } else {
   if (t === 'dark') activateDarkMode()
   else if (t === 'light') activateLightMode()
-}</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/null" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">25</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">9</div></a></div></div></div><hr/></div></div><div id="body-wrap"><div id="sidebar"><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-1-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%85%A5%E9%97%A8"><span class="toc-number">1.</span> <span class="toc-text">Chapter 1 正则表达式入门</span></a></li></ol></div></div></div><header class="post-bg" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Enclave-X</a></span><span id="menus"><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">mastering-regular-expressions</div></div><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-08-18T13:49:18.000Z" title="Created 2021-08-18 21:49:18">2021-08-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2021-08-18T14:02:28.760Z" title="Updated 2021-08-18 22:02:28">2021-08-18</time></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h1 id="Chapter-1-正则表达式入门"><a href="#Chapter-1-正则表达式入门" class="headerlink" title="Chapter 1 正则表达式入门"></a>Chapter 1 正则表达式入门</h1><ol>
-<li><p>egrep： 在指定正则表达式和需要检索的文件后，egrep尝试用正则表达式匹配每个文件的<strong>每一行</strong>。</p>
+}</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/null" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">26</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">10</div></a></div></div></div><hr/></div></div><div id="body-wrap"><div id="sidebar"><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-1-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%85%A5%E9%97%A8"><span class="toc-number">1.</span> <span class="toc-text">Chapter 1 正则表达式入门</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-2-%E5%85%A5%E9%97%A8%E7%A4%BA%E4%BE%8B%E6%8B%93%E5%B1%95"><span class="toc-number">2.</span> <span class="toc-text">Chapter 2 入门示例拓展</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC4%E7%AB%A0-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E5%8C%B9%E9%85%8D%E5%8E%9F%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text">第4章 表达式的匹配原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC6%E7%AB%A0-%E6%89%93%E9%80%A0%E9%AB%98%E6%95%88%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">第6章 打造高效表达式</span></a></li></ol></div></div></div><header class="post-bg" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Enclave-X</a></span><span id="menus"><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">mastering-regular-expressions</div></div><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-08-18T13:49:18.000Z" title="Created 2021-08-18 21:49:18">2021-08-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2021-08-26T07:50:18.842Z" title="Updated 2021-08-26 15:50:18">2021-08-26</time></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><p>写得不错，非常易懂。涉及具体语言对正则表达式的使用和实现没有看。</p>
+<h1 id="Chapter-1-正则表达式入门"><a href="#Chapter-1-正则表达式入门" class="headerlink" title="Chapter 1 正则表达式入门"></a>Chapter 1 正则表达式入门</h1><ol>
+<li><p>egrep： 在指定正则表达式和需要检索的文件后，egrep尝试用正则表达式匹配每个文件的<strong>每一行</strong>, 并显示能够匹配的行。常用的grep命令相当于<code>egrep -E</code>。</p>
+<ul>
+<li>egrep在检查正则表达式前会把行尾的换行符去掉。</li>
+<li><code>-i</code>用于忽略大小写的匹配。</li>
+</ul>
 </li>
-<li><p>元字符：<img src="egrep%E5%85%83%E5%AD%97%E7%AC%A6%E5%B0%8F%E7%BB%93.png"></p>
+<li><p>egrep元字符小结：<img src="egrep%E5%85%83%E5%AD%97%E7%AC%A6%E5%B0%8F%E7%BB%93.png"></p>
 </li>
-<li><p>分组捕获/字符组/多选结构/转义/排除性字符组（仍需要匹配一个字符）/-i忽略大小写/转义的3种情况/<code>/&lt;/&gt;</code></p>
+<li><p>使用括号：限制多选结构与（<code>|</code>一起使用）、分组、捕获文本（用于反向引用）</p>
+</li>
+<li><p>字符组和排除型字符组，都必须匹配一个字符。</p>
+</li>
+<li><p>转义的3种情况：</p>
+<ul>
+<li><code>\</code>加上元字符，表示匹配元字符使用的普通字符。</li>
+<li><code>\</code>加上非元字符，组成一种由具体实现方式规定其意义的元字符序列，如<code>\&lt;</code>表示单词的起始边界。</li>
+<li><code>\</code>加上任意其他字符，默认情况是匹配此字符（即反斜线被忽略）。</li>
+</ul>
 </li>
 </ol>
-</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">DeeEll-X</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://deeell-x.github.io/2021/08/18/mastering-regular-expressions/">http://deeell-x.github.io/2021/08/18/mastering-regular-expressions/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/note/">note</a></div><div class="post_share"><div class="social-share" data-image="/null" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/07/13/good-concept/"><img class="next-cover" src="/null" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">good-concept</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2020/10/15/KeylessSSL/" title="Keyless SSL, The Nitty Gritty Technical Details"><img class="cover" src="/null"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-15</div><div class="title">Keyless SSL, The Nitty Gritty Technical Details</div></div></a></div><div><a href="/2020/10/11/PKCS/" title="Public-Key Cryptography Standards, PKCS"><img class="cover" src="/null"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-11</div><div class="title">Public-Key Cryptography Standards, PKCS</div></div></a></div><div><a href="/2020/10/21/Effective-Modern-Cpp1/" title="Effective Modern Cpp(1) Deducing Types"><img class="cover" src="/null"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-21</div><div class="title">Effective Modern Cpp(1) Deducing Types</div></div></a></div><div><a href="/2020/10/22/Effective-Modern-Cpp2/" title="Effective-Modern-Cpp(2) auto"><img class="cover" src="/null"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-22</div><div class="title">Effective-Modern-Cpp(2) auto</div></div></a></div><div><a href="/2020/10/22/Effective-Modern-Cpp3/" title="Effective-Modern-Cpp(3) Moving to Modern C++"><img class="cover" src="/null"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-22</div><div class="title">Effective-Modern-Cpp(3) Moving to Modern C++</div></div></a></div><div><a href="/2020/10/26/Effective-Modern-Cpp4/" title="Effective-Modern-Cpp(4) Smart Pointers"><img class="cover" src="/null"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-26</div><div class="title">Effective-Modern-Cpp(4) Smart Pointers</div></div></a></div></div></div></article></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By DeeEll-X</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></section><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+<h1 id="Chapter-2-入门示例拓展"><a href="#Chapter-2-入门示例拓展" class="headerlink" title="Chapter 2 入门示例拓展"></a>Chapter 2 入门示例拓展</h1><ol>
+<li><p>捕获型括号<code>(...)</code>;非捕获型括号<code>(?:...)</code>，只分组不捕获。</p>
+</li>
+<li><p><code>[.\t]*</code>和<code>[.*|\t*]</code>的区别：前者不能匹配空格符和制表符的混合体，后者可以。</p>
+</li>
+<li><p>Perl和其他流派的正则表达式提供了许多shorthands：</p>
+<ul>
+<li><code>\t</code> 制表符</li>
+<li><code>\n</code> 换行符</li>
+<li><code>\r</code> 回车符</li>
+<li><code>\s</code> 任何空白字符 <code>\S</code> 除了空白字符外的任何字符</li>
+<li><code>\w</code> “[a-zA-Z0-9]” <code>\W</code> 除<code>\w</code>外的任何字符</li>
+<li><code>\d</code> “[0-9]”即数字 <code>\D</code> 除了<code>\d</code>外的任何字符</li>
+</ul>
+</li>
+<li><p><code>/i</code>修饰符表示此测试不区分大小写。</p>
+</li>
+<li><p>分组捕获之后，子表达式的编号按照开括号的出现先后排序，从1开始。</p>
+</li>
+<li><p>环视：环视不占用任何文本</p>
+<ul>
+<li>肯定顺序环视<code>(?=...)</code>， 否定顺序环视<code>(?!...)</code>(子表达式不能匹配右侧文本)。</li>
+<li>肯定逆序环视<code>(?&lt;=...)</code>， 否定逆序环视<code>(?&lt;!)</code>(子表达式不能匹配左侧文本)。</li>
+</ul>
+</li>
+<li><p>全局替换时，在迭代完成后，下一次迭代会在上一次匹配的终点开始尝试。使用环视的意义就在于检查某个位置，但检查时匹配的字符不算在最终匹配的字符串中。</p>
+</li>
+<li><p><code>$</code>意义复杂，应用意思有：匹配目标字符串的末尾/整个字符串末尾的换行符之前的位置/只匹配目标文本的结束位置/匹配任何一个换行符之前的位置。一般只考虑前面两种。</p>
+</li>
+<li><p>通常，<code>.</code>不能匹配换行符</p>
+</li>
+</ol>
+<h1 id="第4章-表达式的匹配原理"><a href="#第4章-表达式的匹配原理" class="headerlink" title="第4章 表达式的匹配原理"></a>第4章 表达式的匹配原理</h1><ol>
+<li><p>匹配的普适规则</p>
+<ol>
+<li>有限选择最左端的匹配结果</li>
+<li>标准的匹配量词<code>*</code>,<code>+</code>,<code>?</code>,<code>&#123;m,n&#125;</code>是匹配优先的。</li>
+</ol>
+</li>
+<li><p>NFA：表达式主导。一旦匹配成功直接返回。</p>
+<ul>
+<li>NFA处理的特征是回溯。</li>
+<li>目标文本中的某个字符可能被正则表达式中不同的部分重复检测，速度较慢。</li>
+</ul>
+</li>
+<li><p>DFA： 文本主导。DFA在扫描字符串时会记录当前有效的所有匹配可能。</p>
+<ul>
+<li>不支持忽略优先，捕获型括号。</li>
+<li>目标文本中的每个字符最多只检查一遍，速度快。</li>
+</ul>
+</li>
+<li><p>固化分组：<code>(?&gt;...)</code>。如果匹配到此结构之后，此结构体中的所有备用状态都会被放弃（该括号内的内容无法被回溯）。</p>
+</li>
+<li><p>占有优先量词：<code>?+</code>, <code>*+</code>, <code>++</code>和<code>&#123;m,n&#125;+</code>。占有优先量词和匹配优先量词很相似，但它们从不交还已经匹配的字符。与固化分组类似。</p>
+</li>
+<li><p>环视中的回溯：只要环视结构中的匹配结束尝试，它就不会留下任何备用状态。</p>
+<ul>
+<li>故可以用肯定环视模拟固化分组：<code>(?&gt;regex)</code>=&gt;<code>(?=(regex)\1)</code></li>
+</ul>
+</li>
+<li><p>多选结构的匹配。</p>
+<ul>
+<li>传统型NFA：按顺序排列。故多选结构的顺序对NFA的匹配很重要。</li>
+<li>DFA和POSIX NFA：总是匹配所有多选结构中能匹配最多文本的那个。</li>
+</ul>
+</li>
+<li><p>DFA和posix NFA都会扫描完整个文本，获取所有匹配的可能并返回<strong>最左最长</strong>的一项。</p>
+</li>
+<li><p>NFA和DFA的比较</p>
+<ol>
+<li>预编译阶段：NFA编译更快。DFA需要构建permutation。</li>
+<li>匹配速度：NFA的速度与正则表达式写法相关，DFA速度与正则表达式无关。POSIX NFA必须尝试正则表达式的所有变体，确保获取最长的匹配文本，表达式的效率很重要。</li>
+<li>匹配结果：DFA/POSIX NFA会尝试做所有匹配并返回最左边最长的匹配文本；传统型NFA一旦有匹配结果就返回。</li>
+<li>能力的差异：NFA引擎能提供一些DFA不支持的功能，如<ul>
+<li>分组捕获</li>
+<li>环视，以及其他复杂的零长度确认</li>
+<li>非匹配优先的量词，以及有序的多选结构</li>
+<li>占有优先量词和固化分组</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="第6章-打造高效表达式"><a href="#第6章-打造高效表达式" class="headerlink" title="第6章 打造高效表达式"></a>第6章 打造高效表达式</h1><ol>
+<li><p>指数级匹配：<code>([^\\&quot;]+)*</code>中加号和星号二者分割字符串的可能性成指数型增长，对POSIX NFA来说必须尝试所有的可能。</p>
+<ul>
+<li>区分引擎类别： <ol>
+<li>若表达式不能匹配也能很快出结果 - DFA</li>
+<li>若在能够匹配时才能很快出结果 - 传统NFA</li>
+<li>总是很慢 - POSIX NFA</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>消除循环： <code>(normal ｜ special)*</code> =&gt; <code>normal*(special normal)*</code></p>
+</li>
+</ol>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">DeeEll-X</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://deeell-x.github.io/2021/08/18/mastering-regular-expressions/">http://deeell-x.github.io/2021/08/18/mastering-regular-expressions/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/note/">note</a></div><div class="post_share"><div class="social-share" data-image="/null" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/07/27/tigerbook/"><img class="next-cover" src="/null" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">tigerbook</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2020/10/15/KeylessSSL/" title="Keyless SSL, The Nitty Gritty Technical Details"><img class="cover" src="/null"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-15</div><div class="title">Keyless SSL, The Nitty Gritty Technical Details</div></div></a></div><div><a href="/2020/10/11/PKCS/" title="Public-Key Cryptography Standards, PKCS"><img class="cover" src="/null"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-11</div><div class="title">Public-Key Cryptography Standards, PKCS</div></div></a></div><div><a href="/2020/10/21/Effective-Modern-Cpp1/" title="Effective Modern Cpp(1) Deducing Types"><img class="cover" src="/null"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-21</div><div class="title">Effective Modern Cpp(1) Deducing Types</div></div></a></div><div><a href="/2020/10/22/Effective-Modern-Cpp2/" title="Effective-Modern-Cpp(2) auto"><img class="cover" src="/null"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-22</div><div class="title">Effective-Modern-Cpp(2) auto</div></div></a></div><div><a href="/2020/10/22/Effective-Modern-Cpp3/" title="Effective-Modern-Cpp(3) Moving to Modern C++"><img class="cover" src="/null"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-22</div><div class="title">Effective-Modern-Cpp(3) Moving to Modern C++</div></div></a></div><div><a href="/2020/10/26/Effective-Modern-Cpp4/" title="Effective-Modern-Cpp(4) Smart Pointers"><img class="cover" src="/null"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-26</div><div class="title">Effective-Modern-Cpp(4) Smart Pointers</div></div></a></div></div></div></article></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By DeeEll-X</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></section><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     loader: {
       source: {
